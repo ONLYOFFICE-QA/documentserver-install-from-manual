@@ -16,9 +16,9 @@ RUN sudo apt-get update && sudo apt-get install -y rabbitmq-server
 RUN sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys CB2DE8E5
 RUN sudo echo "deb http://download.onlyoffice.com/repo/debian squeeze main" | sudo tee /etc/apt/sources.list.d/onlyoffice.list
 RUN echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
-RUN echo onlyoffice-documentserver-integration onlyoffice/db-pwd select onlyoffice | sudo debconf-set-selections
+RUN echo onlyoffice-documentserver-ie onlyoffice/db-pwd select onlyoffice | sudo debconf-set-selections
 RUN service postgresql start && \
-    sudo apt-get update && sudo apt-get -y install onlyoffice-documentserver-integration
+    sudo apt-get update && sudo apt-get -y install onlyoffice-documentserver-ie
 CMD service postgresql start && \
     service rabbitmq-server start && \
     service redis-server start && \
