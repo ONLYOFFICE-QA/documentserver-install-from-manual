@@ -1,0 +1,16 @@
+sudo: required
+
+language: generic
+services:
+  - docker
+jobs:
+  include:
+    - stage: Dockerfile Ubuntu
+      script:
+        - docker build .
+    - stage: Dockerfile Debian 8
+      script:
+        - docker build . -t Dockerfile-Debian-8
+    - stage: Dockerfile Debian 9
+      script:
+        - docker build . -t Dockerfile-Debian-9
