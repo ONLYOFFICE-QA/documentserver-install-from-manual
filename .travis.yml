@@ -10,7 +10,7 @@ jobs:
         - docker build .
     - stage: Dockerfile Debian 8
       script:
-        - docker build . -t Dockerfile-Debian-8
+        - docker build . -f Dockerfile-Debian-8
     - stage: Dockerfile Debian 9
       script:
-        - docker build . -t Dockerfile-Debian-9
+        - docker build . -f Dockerfile-Debian-9
