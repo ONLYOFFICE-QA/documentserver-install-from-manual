@@ -7,10 +7,10 @@ jobs:
   include:
     - stage: Dockerfile Ubuntu
       script:
-        - docker build .
+        - docker build Ubuntu-16.04
     - stage: Dockerfile Debian 8
       script:
-        - docker build . -f Dockerfile-Debian-8
+        - docker build Debian-8
     - stage: Dockerfile Debian 9
       script:
-        - docker build . -f Dockerfile-Debian-9
+        - docker build Debian-9
