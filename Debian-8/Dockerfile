@@ -1,6 +1,6 @@
 FROM debian:8
 
-MAINTAINER Pavel.Lobashov "shockwavenn@gmail.com"
+LABEL maintainer="shockwavenn@gmail.com"
 
 RUN apt-get update && apt-get install -y curl sudo
 
