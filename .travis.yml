@@ -5,9 +5,12 @@ services:
   - docker
 jobs:
   include:
-    - stage: Dockerfile Ubuntu
+    - stage: Dockerfile Ubuntu 16.04
       script:
         - docker build Ubuntu-16.04
+    - stage: Dockerfile Ubuntu 18.04
+      script:
+        - docker build Ubuntu-18.04
     - stage: Dockerfile Debian 8
       script:
         - docker build Debian-8
