@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-MAINTAINER Pavel.Lobashov "shockwavenn@gmail.com"
+LABEL maintainer="shockwavenn@gmail.com"
 
 RUN apt-get update && apt-get install -y curl \
 # Fixed in https://github.com/ONLYOFFICE/document-server-package/commit/7d08efafd51025a5401767ae291e89c961c47727
