@@ -33,5 +33,4 @@ sudo systemctl enable supervisord
 sudo service nginx start
 sudo systemctl enable nginx
 
-sudo supervisorctl start all
-bash documentserver-configure.sh
+sudo bash documentserver-configure.sh
