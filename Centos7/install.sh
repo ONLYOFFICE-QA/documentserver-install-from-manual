@@ -1,5 +1,4 @@
 # Cannot use docker since no systemd in centos images
-sudo su
 sudo yum update -y
 curl -sL https://rpm.nodesource.com/setup_8.x | sudo bash -
 sudo cp nginx.repo /etc/yum.repos.d/nginx.repo
