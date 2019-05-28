@@ -2,11 +2,11 @@ FROM ubuntu:18.04
 
 LABEL maintainer="shockwavenn@gmail.com"
 
-RUN apt-get update && apt-get install -y curl \
+RUN apt-get update && apt-get install -y curl \ 
+                                         gnupg \
                                          sudo
 
 RUN sudo apt-get update && sudo apt-get install -y postgresql
-RUN apt-get install -y npm # Workaround for https://github.com/ONLYOFFICE/DocumentServer/issues/271
 RUN service postgresql start && \
     sudo -u postgres psql -c "CREATE DATABASE onlyoffice;" && \
     sudo -u postgres psql -c "CREATE USER onlyoffice WITH password 'onlyoffice';" && \
