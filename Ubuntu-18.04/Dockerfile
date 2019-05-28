@@ -3,8 +3,6 @@ FROM ubuntu:18.04
 LABEL maintainer="shockwavenn@gmail.com"
 
 RUN apt-get update && apt-get install -y curl \
-# Fixed in https://github.com/ONLYOFFICE/document-server-package/commit/7d08efafd51025a5401767ae291e89c961c47727
-                                         libcurl3-gnutls \ 
                                          sudo
 
 RUN sudo apt-get update && sudo apt-get install -y postgresql
