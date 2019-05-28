@@ -1,6 +1,8 @@
-# ubuntu-install-documentserver-from-manual
-Install Documentserver on ubuntu using manual http://helpcenter.onlyoffice.com/server/linux/document/linux-installation.aspx
+# onlyoffice-documentserver-install-from-manual
 
+Install Documentserver on ubuntu using [manual](http://helpcenter.onlyoffice.com/server/linux/document/linux-installation.aspx)
+
+```bash
+docker build -t onlyoffice-documentserver-install-from-manual **OPERATION_SYSTEM** && \
+docker run -itd -p 80:80 --name onlyoffice-documentserver-install-from-manual onlyoffice-documentserver-install-from-manual
 ```
-docker build -t ubuntu-install-documentserver-from-manual . && \
-docker run -itd -p 80:80 --name ubuntu-install-documentserver-from-manual ubuntu-install-documentserver-from-manual
