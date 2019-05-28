@@ -22,5 +22,5 @@ CMD service postgresql start && \
     service redis-server start && \
     service nginx start && \
     service supervisor start && \
-    supervisorctl start onlyoffice-documentserver:example && \
+    supervisorctl start all && \
     bash
