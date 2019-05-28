@@ -17,3 +17,6 @@ jobs:
     - stage: Dockerfile Debian 9
       script:
         - docker build Debian-9
+    - stage: Dockerfile Debian 10
+      script:
+        - docker build Debian-10
