@@ -33,4 +33,5 @@ sudo systemctl enable supervisord
 sudo service nginx start
 sudo systemctl enable nginx
 
-sudo bash documentserver-configure.sh
+printf 'localhost\nonlyoffice\nonlyoffice\nonlyoffice\nlocalhost\nlocalhost\nguest\nguest\n' | sudo documentserver-configure.sh
+sudo supervisorctl start all
