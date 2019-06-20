@@ -25,7 +25,12 @@ sudo yum install rabbitmq-server -y
 sudo service rabbitmq-server start
 sudo systemctl enable rabbitmq-server
 
-sudo yum -y install http://download.onlyoffice.com/repo/centos/main/noarch/onlyoffice-repo.noarch.rpm
+if [ "$#" -ne 1 ]; then
+    sudo yum -y install http://download.onlyoffice.com/repo/centos/main/noarch/onlyoffice-repo.noarch.rpm
+else
+    sudo cp onlyoffice.repo /etc/yum.repos.d/onlyoffice.repo
+fi
+
 sudo yum install onlyoffice-documentserver-ie -y
 
 sudo service supervisord start

@@ -1,0 +1,4 @@
+[documentserver]
+name=onlyoffice-documentserver
+baseurl=http://repo-doc-onlyoffice-com.s3.amazonaws.com/centos/7/onlyoffice-{product-name}/origin/{branch}/latest/
+gpgcheck=0
