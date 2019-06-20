@@ -17,6 +17,7 @@ cd /tmp
 sudo -u postgres psql -c "CREATE DATABASE onlyoffice;"
 sudo -u postgres psql -c "CREATE USER onlyoffice WITH password 'onlyoffice';"
 sudo -u postgres psql -c "GRANT ALL privileges ON DATABASE onlyoffice TO onlyoffice;"
+cd -
 
 sudo yum install redis -y
 sudo service redis start
