@@ -4,7 +4,6 @@ LABEL maintainer="shockwavenn@gmail.com"
 
 RUN apt-get update && apt-get install -y curl sudo gnupg
 
-RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
 RUN sudo apt-get update && sudo apt-get install -y postgresql
 RUN service postgresql start && \
     sudo -u postgres psql -c "CREATE DATABASE onlyoffice;" && \
