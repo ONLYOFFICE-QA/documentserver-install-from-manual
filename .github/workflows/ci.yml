@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Dockerfile ${{ matrix.docker-folder }} Test
-      run: docker build ${{ matrix.docker-folder }} .
+      run: docker build ${{ matrix.docker-folder }}
