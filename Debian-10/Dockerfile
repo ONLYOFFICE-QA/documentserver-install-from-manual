@@ -2,6 +2,7 @@ FROM debian:buster
 
 LABEL maintainer="shockwavenn@gmail.com"
 
+ENV DS_PRODUCT=onlyoffice-documentserver
 RUN apt-get update && apt-get install -y curl sudo gnupg
 
 RUN sudo apt-get update && sudo apt-get install -y postgresql
@@ -13,9 +14,9 @@ RUN sudo apt-get update && sudo apt-get install -y redis-server
 RUN sudo apt-get update && sudo apt-get install -y rabbitmq-server
 RUN sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys CB2DE8E5
 RUN sudo echo "deb http://download.onlyoffice.com/repo/debian squeeze main" | sudo tee /etc/apt/sources.list.d/onlyoffice.list
-RUN echo onlyoffice-documentserver onlyoffice/db-pwd select onlyoffice | sudo debconf-set-selections
+RUN echo ${DS_PRODUCT} onlyoffice/db-pwd select onlyoffice | sudo debconf-set-selections
 RUN service postgresql start && \
-    sudo apt-get update && sudo apt-get -y --force-yes install onlyoffice-documentserver-ie
+    sudo apt-get update && sudo apt-get -y --force-yes install ${DS_PRODUCT}
 CMD service postgresql start && \
     service rabbitmq-server start && \
     service redis-server start && \
