@@ -3,7 +3,6 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    continue-on-error: ${{ matrix.known-install-problems }}
     strategy:
       matrix:
         docker-folder:
