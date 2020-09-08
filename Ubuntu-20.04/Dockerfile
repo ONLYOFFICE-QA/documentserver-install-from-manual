@@ -2,6 +2,7 @@ FROM ubuntu:20.04
 
 LABEL maintainer="shockwavenn@gmail.com"
 ENV TZ=Etc/UTC
+ENV DS_PRODUCT=onlyoffice-documentserver
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apt-get update && apt-get install -y curl \ 
@@ -17,9 +18,9 @@ RUN sudo apt-get update && sudo apt-get install -y redis-server
 RUN sudo apt-get update && sudo apt-get install -y rabbitmq-server
 RUN sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys CB2DE8E5
 RUN sudo echo "deb http://download.onlyoffice.com/repo/debian squeeze main" | sudo tee /etc/apt/sources.list.d/onlyoffice.list
-RUN echo onlyoffice-documentserver onlyoffice/db-pwd select onlyoffice | sudo debconf-set-selections
+RUN echo ${DS_PRODUCT} onlyoffice/db-pwd select onlyoffice | sudo debconf-set-selections
 RUN service postgresql start && \
-    sudo apt-get update && sudo apt-get -y install onlyoffice-documentserver
+    sudo apt-get update && sudo apt-get -y install ${DS_PRODUCT}
 RUN sed -i "s/bind .*/bind 127.0.0.1/g" /etc/redis/redis.conf # https://github.com/antirez/redis/issues/5055 
 CMD service postgresql start && \
     service rabbitmq-server start && \

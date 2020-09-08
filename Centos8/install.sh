@@ -1,6 +1,8 @@
 # Cannot use docker since no systemd in centos images
 set -e
 
+DS_PRODUCT=onlyoffice-documentserver-ie
+
 sudo cp nginx.repo /etc/yum.repos.d/nginx.repo
 sudo yum install nginx -y
 sudo cp nginx.conf /etc/nginx/nginx.conf
@@ -34,7 +36,7 @@ else
     sudo cp onlyoffice.repo /etc/yum.repos.d/onlyoffice.repo
 fi
 
-sudo yum install onlyoffice-documentserver-ie -y
+sudo yum install ${DS_PRODUCT} -y
 
 sudo service supervisord start
 sudo systemctl enable supervisord
