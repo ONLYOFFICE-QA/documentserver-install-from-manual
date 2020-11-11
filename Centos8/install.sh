@@ -1,7 +1,7 @@
 # Cannot use docker since no systemd in centos images
 set -e
 
-DS_PRODUCT=onlyoffice-documentserver-ie
+DS_PRODUCT=onlyoffice-documentserver-ee
 
 sudo cp nginx.repo /etc/yum.repos.d/nginx.repo
 sudo yum install nginx -y
