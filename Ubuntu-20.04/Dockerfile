@@ -18,7 +18,8 @@ RUN sudo apt-get update && sudo apt-get install -y redis-server
 RUN sudo apt-get update && sudo apt-get install -y rabbitmq-server
 RUN sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys CB2DE8E5
 RUN sudo echo "deb http://download.onlyoffice.com/repo/debian squeeze main" | sudo tee /etc/apt/sources.list.d/onlyoffice.list
-RUN echo ${DS_PRODUCT} onlyoffice/db-pwd select onlyoffice | sudo debconf-set-selections
+RUN echo ${DS_PRODUCT} onlyoffice/db-pwd select onlyoffice | sudo debconf-set-selections && \
+    echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
 RUN service postgresql start && \
     sudo apt-get update && sudo apt-get -y install ${DS_PRODUCT}
 RUN sed -i "s/bind .*/bind 127.0.0.1/g" /etc/redis/redis.conf # https://github.com/antirez/redis/issues/5055 
