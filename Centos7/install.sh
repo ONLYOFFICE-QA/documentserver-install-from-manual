@@ -1,6 +1,7 @@
 #!/bin/bash
 # Cannot use docker since no systemd in centos images
 set -e
+set -m # enable job control
 
 DS_PRODUCT=onlyoffice-documentserver-ee
 
