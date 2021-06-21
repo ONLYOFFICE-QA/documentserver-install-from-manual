@@ -37,7 +37,7 @@ if [ "$#" -ne 1 ]; then
     sudo yum install ${DS_PRODUCT} -y
 else
     sudo dnf config-manager --add-repo http://repo-doc-onlyoffice-com.s3.amazonaws.com/onlyoffice/repo-testing/centos/onlyoffice-testing.repo
-    sudo yum install ${DS_PRODUCT}-$2 -y
+    sudo yum install ${DS_PRODUCT}-"$1" -y
 fi
 
 sudo service supervisord start
