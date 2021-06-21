@@ -1,10 +1,11 @@
+#!/bin/bash
 # Cannot use docker since no systemd in centos images
 set -e
 
 DS_PRODUCT=onlyoffice-documentserver-ee
 
 sudo yum -y install dnf
-sudo dnf install 'dnf-command(config-manager)'
+sudo dnf -y install 'dnf-command(config-manager)'
 
 sudo cp nginx.repo /etc/yum.repos.d/nginx.repo
 sudo yum install nginx -y
@@ -33,11 +34,11 @@ sudo systemctl enable rabbitmq-server
 
 if [ "$#" -ne 1 ]; then
     sudo yum -y install http://download.onlyoffice.com/repo/centos/main/noarch/onlyoffice-repo.noarch.rpm
+    sudo yum install ${DS_PRODUCT} -y
 else
     sudo dnf config-manager --add-repo http://repo-doc-onlyoffice-com.s3.amazonaws.com/onlyoffice/repo-testing/centos/onlyoffice-testing.repo
+    sudo yum install ${DS_PRODUCT}-$2 -y
 fi
-
-sudo yum install ${DS_PRODUCT} -y
 
 sudo service supervisord start
 sudo systemctl enable supervisord
