@@ -24,8 +24,8 @@ sudo yum install redis -y
 sudo service redis start
 sudo systemctl enable redis
 
-sudo rpm --import https://github.com/rabbitmq/signing-keys/releases/download/2.0/rabbitmq-release-signing-key.asc
-sudo cp rabbitmq.repo /etc/yum.repos.d
+sudo dnf -y install https://github.com/rabbitmq/erlang-rpm/releases/download/v24.0.5/erlang-24.0.5-1.el8.x86_64.rpm
+curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | sudo bash
 sudo yum install rabbitmq-server -y
 sudo service rabbitmq-server start
 sudo systemctl enable rabbitmq-server
