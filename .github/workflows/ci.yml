@@ -12,6 +12,7 @@ jobs:
         - 'Debian-8'
         - 'Debian-9'
         - 'Debian-10'
+        - 'Debian-11'
     steps:
     - uses: actions/checkout@v2
     - name: Dockerfile ${{ matrix.docker-folder }} Test
