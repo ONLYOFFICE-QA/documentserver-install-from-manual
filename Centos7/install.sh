@@ -32,7 +32,7 @@ sudo yum install rabbitmq-server -y
 sudo service rabbitmq-server start
 sudo systemctl enable rabbitmq-server
 
-sudo yum install cabextract xorg-x11-font-utils fontconfig
+sudo yum -y install cabextract xorg-x11-font-utils fontconfig
 sudo rpm -i https://deac-ams.dl.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
 
 if [ "$#" -ne 1 ]; then
