@@ -2,7 +2,7 @@ FROM debian:bullseye
 
 LABEL maintainer="shockwavenn@gmail.com"
 
-ENV DS_PRODUCT=onlyoffice-documentserver-ee
+ENV DS_PRODUCT=onlyoffice-documentserver
 RUN apt-get update && apt-get install -y curl sudo gnupg
 RUN sed -r -i 's/^deb(.*)$/deb\1 contrib/g' /etc/apt/sources.list
 
