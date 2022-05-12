@@ -2,8 +2,9 @@ FROM debian:bullseye
 
 LABEL maintainer="shockwavenn@gmail.com"
 
-ENV DS_PRODUCT=onlyoffice-documentserver
+ENV DS_PRODUCT=onlyoffice-documentserver-ee
 RUN apt-get update && apt-get install -y curl sudo gnupg
+RUN sed -r -i 's/^deb(.*)$/deb\1 contrib/g' /etc/apt/sources.list
 
 RUN sudo apt-get update && sudo apt-get install -y postgresql
 RUN service postgresql start && \

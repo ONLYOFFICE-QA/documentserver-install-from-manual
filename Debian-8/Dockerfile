@@ -4,6 +4,7 @@ LABEL maintainer="shockwavenn@gmail.com"
 
 ENV DS_PRODUCT=onlyoffice-documentserver
 RUN apt-get update && apt-get install -y curl sudo
+RUN sed -r -i 's/^deb(.*)$/deb\1 contrib/g' /etc/apt/sources.list
 
 RUN sudo apt-get update && sudo apt-get install -y postgresql
 RUN service postgresql start && \
