@@ -16,7 +16,8 @@ RUN service postgresql start && \
     sudo -u postgres psql -c "GRANT ALL privileges ON DATABASE onlyoffice TO onlyoffice;"
 RUN sudo apt-get update && sudo apt-get install -y redis-server
 RUN sudo apt-get update && sudo apt-get install -y rabbitmq-server
-RUN sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys CB2DE8E5
+RUN wget --retry-on-http-error=500 -qO - "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0xe09ca29f6e178040ef22b4098320ca65cb2de8e5" | \
+    gpg --dearmor > /usr/share/keyrings/onlyoffice.gpg
 RUN sudo echo "deb http://download.onlyoffice.com/repo/debian squeeze main" | sudo tee /etc/apt/sources.list.d/onlyoffice.list
 RUN echo ${DS_PRODUCT} onlyoffice/db-pwd select onlyoffice | sudo debconf-set-selections && \
     echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
